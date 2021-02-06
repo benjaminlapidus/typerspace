@@ -1,6 +1,18 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2576
-\cocoatextscaling0\cocoaplatform0{\fonttbl}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+import React from "react";
+import "./VideoWrapper.scss";
+import ReactPlayer from 'react-player/youtube'
+
+
+
+function VideoWrapper() {
+	return (
+
+// Only loads the YouTube player
+<ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U'
+width='100%'
+height='100%'
+volume=".2"/>
+	);
 }
+
+export default VideoWrapper;
