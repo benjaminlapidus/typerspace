@@ -13,10 +13,6 @@ const VideoWrapper = (props) => {
         props.handleCaptionIndex(capIndex);          
     }
 
-	const videoPaused = () => {
-		clearInterval(interval);
-		setIsPlaying(false);
-	}
 
 	const testData = (e) => {
 		console.log(e);
