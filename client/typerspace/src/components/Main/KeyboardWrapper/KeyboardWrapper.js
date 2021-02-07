@@ -11,11 +11,9 @@ class KeyboardWrapper extends Component {
 
   onChange = input => {
     this.setState({ input });
-    console.log("Input changed", input);
   };
 
   onKeyPress = button => {
-    console.log("Button pressed", button);
    
 
     /**

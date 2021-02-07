@@ -5,11 +5,8 @@ import "./Caption.scss";
 //document.getElementById("nav-id__splide__arrow--next").click()
 
 const Caption = (props) => {
-	const [currentKey, setCurrentKey] = React.useState(0);
+	console.log(props);
 	
-
-	
-
 	return (
 		<span
 			id={props.letter === " " ? "space" : ""}
