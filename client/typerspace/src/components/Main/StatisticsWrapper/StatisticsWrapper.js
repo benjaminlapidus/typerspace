@@ -1,6 +1,15 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2576
-\cocoatextscaling0\cocoaplatform0{\fonttbl}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+import React from "react";
+import "./StatisticsWrapper.scss";
+
+function StatisticsWrapper() {
+	return (
+		<div className="wrapper">
+ 			<h1 onClick={e=>document.getElementById("nav-id__splide__arrow--next").click()}>Next</h1>
+ 			<h1 onClick={e=>document.getElementById("nav-id__splide__arrow--prev").click()}>Prev</h1>
+
+</div>
+
+	);
 }
+
+export default StatisticsWrapper;

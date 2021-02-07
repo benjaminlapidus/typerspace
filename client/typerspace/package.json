@@ -18,6 +18,8 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
+    "react-simple-keyboard": "^2.5.133",
+    "simple-keyboard": "^2.32.94",
     "typescript": "^4.1.3",
     "web-vitals": "^1.1.0"
   },
