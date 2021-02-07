@@ -7,11 +7,8 @@ function HomeWrapper() {
 	const ytParser = (url) => {
     var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
     var match = url.match(regExp);
-
-    setLink(match[7]);
-   
+    setLink((match&&match[7].length==11)? match[7] : false);
 }
-	}
 
 
 	return (
@@ -34,7 +31,7 @@ function HomeWrapper() {
 			<div className="search-wrapper">
 			<form className="home__form" action={"/dashboard"}>
     			<label for="ytlink">Enter a YouTube link to begin your mission</label>
-   				<input onChange={e => setLink(e.target.value)} type="text" id="ytlink" name="link" placeholder="https://youtu.be/Bed1z7f1EI4"/>
+   				<input onChange={e => ytParser(e.target.value)} type="text" id="ytlink" name="link" placeholder="https://youtu.be/Bed1z7f1EI4"/>
    				<div className="submitButtonWrapper">
    				<input id="submitButton" type="submit" value="Submit"/>
    				</div>
