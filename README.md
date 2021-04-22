@@ -1,8 +1,8 @@
+## What is Typerspace?
+Typerspace lets users practice their typing skills by following along with the captions to a YouTube video.
+
 ## Inspiration
 When deciding on an idea for this hackathon, one of our members fondly recalled a typing game that we played in primary school. Unlike modern typing games such as TypeRacer, which are purely text-based, it provided interesting and fun visuals which promoted greater engagement with and passion for the game. We decided that we could apply this same concept in our project by allowing users to engage with interesting content on YouTube while they type, which will ideally let them practice an additional skill without making it seem like work.
-
-## What it does
-Typerspace lets users practice their typing skills by following along with the captions to a YouTube video.
 
 ## How we built it
 Thanks to sponsorships from MLH, Domain.com, and other HackBU sponsors, we were able to host the backend of our site to create a public API using Flask and Heroku that served as the foundation of our project. Building on this foundation, there was a complicated set of components that manipulated the data we created on our servers. Using HTML, Sass, and JavaScript,  we developed a complex front-end experience; dynamically displaying text to multiple means of text entry to slick animations, the front-end of this site used a variety of modern web tools to capture what will be a fantastic user experience.
