@@ -20,12 +20,20 @@ function handleCaptionIndex(newValue) {
   }
 
   React.useEffect(() => {
-    axios.get("localhost:5000/api/" + videoID).then(response => {
+    fetch('api/' + videoID).then(response => {
       console.log(response.data);
       setData(response.data);
       setLoading(false);
     });
   }, []);
+
+  // React.useEffect(() => {
+  //   axios.get("api/" + videoID).then(response => {
+  //     console.log(response.data);
+  //     setData(response.data);
+  //     setLoading(false);
+  //   });
+  // }, []);
 
   if (isLoading) {
     return <div class="loader"></div>;
