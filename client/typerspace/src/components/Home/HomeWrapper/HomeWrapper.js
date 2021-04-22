@@ -24,16 +24,15 @@ function HomeWrapper() {
 				<div class="saturn"></div>
 				<div class="uranus"></div>
 				<div class="neptune"></div>
-				<div class="pluto"></div>
 				<div class="asteroids-belt"></div>
 			</div>
 
 			<div className="search-wrapper">
+			<h2 className="bottom_header">Begin your mission</h2>
 			<form className="home__form" action={"/dashboard"}>
-    			<label for="ytlink">Enter a YouTube link to begin your mission</label>
-   				<input onChange={e => ytParser(e.target.value)} type="text" id="ytlink" name="link" placeholder="https://youtu.be/Bed1z7f1EI4"/>
+   				<input onChange={e => ytParser(e.target.value)} type="text" id="ytlink" name="link" />
    				<div className="submitButtonWrapper">
-   				<input id="submitButton" type="submit" value="Submit"/>
+   				<input id="submitButton" type="submit" value="takeoff"/>
    				</div>
   			</form>
   			</div>

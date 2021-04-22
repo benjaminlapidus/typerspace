@@ -1,20 +1,3 @@
-/*
-  Malik Dellidj - @Dathink
-
-  Solar System orbit animation true time scaled
-
-  Revolution of planets in earth days (from Wikipedia)
-  Mercury : ~87,5 days
-  Venus : ~224,7 days
-  Earth : ~365,2563 days
-    + Moon : ~27,3216 days (around earth)
-  Mars : ~687 days (~1,8 year)
-  Jupiter : ~4 331 days (~12 years)
-  Saturn : ~10 747 days (~30 years)
-  Uranus : ~30 589 days (~84 years)
-  Neptune : ~59 802 days (~165 years)
-  Pluto : ~90 580 days (~248 years)
-*/
 
 $year-in-second : 30; // 1 Earth year = 30 sec
 
@@ -25,7 +8,7 @@ $year-in-second : 30; // 1 Earth year = 30 sec
   @return random(1000)*.001;
 }
 @function stars($s, $max-area, $min-area : 0, $star-size : 0){
-  $stars : #{$min-area + random($max-area)}px #{$min-area + random($max-area)}px 0 #{$star-size}px rgba(255,255,255, alphaRandom()); 
+  $stars : #{$min-area + random($max-area)}px #{$min-area + random($max-area)}px 0 #{$star-size}px rgba(255,255,255, alphaRandom());
   @for $i from 1 to $s{
     $stars: '#{$stars} , #{$min-area + random($max-area)}px #{$min-area + random($max-area)}px 0 #{$star-size}px rgba(255,255,255, #{alphaRandom()})'
   }
@@ -33,11 +16,11 @@ $year-in-second : 30; // 1 Earth year = 30 sec
 }
 
 $sun: 40px;
-$mercury-orb : 70px; $mercury-pl: 4px; 
-$venus-orb : 100px; $venus-pl: 8px; 
-$earth-orb : 145px; $earth-pl: 6px; 
+$mercury-orb : 70px; $mercury-pl: 4px;
+$venus-orb : 100px; $venus-pl: 8px;
+$earth-orb : 145px; $earth-pl: 6px;
 $mars-orb : 190px; $mars-pl: 6px;
-$jupiter-orb : 340px; $jupiter-pl: 18px; 
+$jupiter-orb : 340px; $jupiter-pl: 18px;
 $saturn-orb : 440px; $saturn-pl: 12px;
 $uranus-orb : 520px; $uranus-pl: 10px;
 $neptune-orb : 630px; $neptune-pl: 10px;
@@ -71,6 +54,15 @@ h1{
   text-transform:uppercase;
   font-family: Lato;
   line-height:1.6em;
+  letter-spacing:.1em;
+}
+
+h2{
+  font-weight:100;
+  font-size:1.5em;
+  text-transform:uppercase;
+  font-family: Lato;
+  line-height:1.2em;
   letter-spacing:.1em;
 }
 
@@ -276,7 +268,7 @@ code{
   &:after{
     position: absolute;
     content: "";
-    height: 2.34%; 
+    height: 2.34%;
     width: 4.676%;
     left: 50%;
     top: 0px;
@@ -329,7 +321,7 @@ code{
   margin-top: -$asteroids-belt-orb / 2;
   margin-left: -$asteroids-belt-orb / 2;
   animation: orb revolution(2191) linear infinite;
-  overflow:hidden;
+  overflow:hidden !important;
   &:before{
     top:50%;
     height:$asteroids-belt-pl;
@@ -376,12 +368,14 @@ code{
 
 .attribution {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8vw;
 }
 
 .home__form {
-  width: 700px;
+  width: 75vw;
   margin: 0;
   position: absolute;
   top: 60%;
@@ -392,19 +386,30 @@ code{
 
 #ytlink {
   border-radius: 60px;
-  margin-bottom: 12px;
+  margin-bottom: 5px;
     padding-left: 60px;
-    height: 40px;
+    height: 20px;
     outline: none;
 
 }
 
+
 .header {
+  z-index: 999999999999;
   position: absolute;
-  top: 20%;
+  top: 10%;
   width: 100%;
   text-align: center;
-  font-size: 550%;
+  font-size: 8vw;
+}
+
+.bottom_header {
+  position: absolute;
+  top: 38vh;
+  width: 100%;
+  text-align: center;
+  height: 1vh;
+  font-size: 3vw;
 }
 
 .submitButtonWrapper {
@@ -413,14 +418,23 @@ code{
 }
 
 #submitButton {
-  width: 50px;
+  font-weight: 300;
+  font-size: 1.5em;
+  text-transform:uppercase;
+  font-family: Lato;
+  line-height:1.6em;
+  letter-spacing:.1em;
+  line-height: 1em;
+  padding: 0px;
+  width: 150px;
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  height: 30px;
+  height: 40px;
+  color: black;
 }
 
 label {

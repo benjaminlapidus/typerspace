@@ -17,7 +17,7 @@ class Caption:
         self.text = t
 
 def getInfo(videoID):
-    
+
     try:
         transcriptList = YouTubeTranscriptApi.list_transcripts(videoID)
 
@@ -42,7 +42,7 @@ def getInfo(videoID):
             video.captions.append(Caption(caption['start'], caption['start'] + caption['duration'], caption['duration'], caption['text'].replace(chr(34), '').replace('\n',' ').replace(chr(160), ' ')))
 
         jsonVideo = json.dumps(video, default=lambda o: o.__dict__)
-        return jsonVideo    
+        return jsonVideo
 
     except(Exception):
         video = Video(0, False)

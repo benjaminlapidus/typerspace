@@ -8,7 +8,7 @@ import "./MainWrapper.scss";
 let words = ["dbv", "Second sentence is cool", "Third is even better!", ""];
 
 function MainWrapper() {
-	
+
 const [isLoading, setLoading] = React.useState(true);
 const [captionIndex, setCaptionIndex] = React.useState(true);
 let [data, setData] = React.useState({});
@@ -20,14 +20,15 @@ function handleCaptionIndex(newValue) {
   }
 
   React.useEffect(() => {
-    axios.get("http://typer.space/api/" + videoID).then(response => {
+    axios.get("localhost:5000/api/" + videoID).then(response => {
+      console.log(response.data);
       setData(response.data);
       setLoading(false);
     });
   }, []);
 
   if (isLoading) {
-    return <div style={{color: "white"}}>Loading...</div>;
+    return <div class="loader"></div>;
   }
 
   return (
