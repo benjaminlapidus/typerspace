@@ -1,6 +1,7 @@
 import requests
 import json
 from flask import *
+from flask_cors import CORS, cross_origin
 from youtube_transcript_api import YouTubeTranscriptApi
 
 class Video:
@@ -50,14 +51,13 @@ def getInfo(videoID):
         return jsonVideo
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
+@cross_origin()
 @app.route("/api/<videoID>")
 def api_test(videoID):
     return getInfo(videoID)
-
-@app.route("/", methods=['GET'])
-def home():
-    return "Home"
 
 if __name__ == "__main__":
     app.run(threaded=True, port=5000)

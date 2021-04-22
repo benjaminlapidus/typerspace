@@ -5,14 +5,11 @@ import StatisticsWrapper from "../StatisticsWrapper/StatisticsWrapper";
 import KeyboardWrapper from "../KeyboardWrapper/KeyboardWrapper";
 import "./MainWrapper.scss";
 
-let words = ["dbv", "Second sentence is cool", "Third is even better!", ""];
-
-function MainWrapper() {
-
+function MainWrapper(props) {
+var link = props.location.search.substring(props.location.search.length - 11);
 const [isLoading, setLoading] = React.useState(true);
 const [captionIndex, setCaptionIndex] = React.useState(true);
 let [data, setData] = React.useState({});
-let videoID = "F12PJgyVKyA";
 const axios = require('axios').default;
 
 function handleCaptionIndex(newValue) {
@@ -20,8 +17,7 @@ function handleCaptionIndex(newValue) {
   }
 
   React.useEffect(() => {
-    fetch('api/' + videoID).then(response => {
-      console.log(response.data);
+    axios.get('http://127.0.0.1:5000/api/' + link).then(response => {
       setData(response.data);
       setLoading(false);
     });
@@ -42,7 +38,7 @@ function handleCaptionIndex(newValue) {
   return (
 		<div className="wrapper">
 			<div className="video__wrapper">
-				<VideoWrapper handleCaptionIndex={handleCaptionIndex} data={data.captions}/>
+				<VideoWrapper id={link} handleCaptionIndex={handleCaptionIndex} data={data.captions}/>
 			</div>
 			<div className="caption__wrapper">
 				<CaptionsWrapper captionIndex={captionIndex} words={data.captions} />

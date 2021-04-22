@@ -1,7 +1,7 @@
 import React from "react";
 import "./HomeWrapper.scss";
 
-function HomeWrapper() {
+function HomeWrapper(props) {
 	const [link, setLink] = React.useState("");
 
 	const ytParser = (url) => {

@@ -5,8 +5,7 @@ import "./Caption.scss";
 //document.getElementById("nav-id__splide__arrow--next").click()
 
 const Caption = (props) => {
-	console.log(props);
-	
+
 	return (
 		<span
 			id={props.letter === " " ? "space" : ""}
@@ -17,7 +16,7 @@ const Caption = (props) => {
 						? "temp blinking-cursor"
 						: "temp"
 					: "temp"
-												
+
 					}
 
 				style={{
