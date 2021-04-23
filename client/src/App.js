@@ -9,16 +9,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-
-      <BrowserRouter>
-        <Route exact path="/" component={Home} />
-        <Route path="/dashboard" component={Main} />
-</BrowserRouter>
+        <BrowserRouter>
+          <Route exact path="/" component={Home} />
+          <Route path="/dashboard" component={Main} />
+        </BrowserRouter>
       </div>
-
-      );
-    }
-
+    );
+  }
 }
 
 export default App;

@@ -40,26 +40,26 @@ input {
 }
 
 /*!
- * 
+ *
  *   react-simple-keyboard v2.5.133
  *   https://github.com/hodgef/react-simple-keyboard
- * 
+ *
  *   Copyright (c) Francisco Hodge (https://github.com/hodgef)
- * 
+ *
  *   This source code is licensed under the MIT license found in the
  *   LICENSE file in the root directory of this source tree.
- *   
+ *
  */
 /*!
- * 
+ *
  *   simple-keyboard v2.32.94
  *   https://github.com/hodgef/simple-keyboard
- * 
+ *
  *   Copyright (c) Francisco Hodge (https://github.com/hodgef)
- * 
+ *
  *   This source code is licensed under the MIT license found in the
  *   LICENSE file in the root directory of this source tree.
- *   
+ *
  */
 .hg-theme-default {
   width: 100%;
@@ -156,12 +156,14 @@ input {
 /*# sourceMappingURL=index.css.map */
 
 .react-simple-keyboard {
+
   height:183px;
+  width: 850px;
 }
 
 .keyboard__inner-wrapper {
-    display: block;
-  margin-left: auto;
-  margin-right: auto;
-    width: 85%;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

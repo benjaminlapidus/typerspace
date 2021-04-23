@@ -10,7 +10,6 @@ function HomeWrapper(props) {
     setLink((match&&match[7].length==11)? match[7] : false);
 }
 
-
 	return (
 		<div>
 			<h1 className="header">Typerspace</h1>

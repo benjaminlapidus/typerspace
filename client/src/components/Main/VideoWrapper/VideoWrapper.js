@@ -33,8 +33,7 @@ const VideoWrapper = (props) => {
 width='100%'
 height='100%'
 onProgress={(e) => testData(e) }
-
-volume=".2"/>
+/>
 	);
 }
 

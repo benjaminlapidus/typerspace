@@ -21,6 +21,10 @@ const primaryOptions = {
 	lazyLoad: 'nearby'
 };
 
+const secondaryOptions = {
+	focus: 'center',
+}
+
 
 const CaptionsWrapper = (props) => {
 
@@ -74,11 +78,11 @@ const CaptionsWrapper = (props) => {
 								{phrase.text.split("").map((letter, letterInd) => {
 									return (
 										<Caption
-										captionInd = {captionInd}
-										captionIndex = {captionIndex}
-										charIndex = {charIndex}
-										letterInd = {letterInd}
-										letter={letter}
+											captionInd = {captionInd}
+											captionIndex = {captionIndex}
+											charIndex = {charIndex}
+											letterInd = {letterInd}
+											letter={letter}
 										/>
 									);
 								})}
