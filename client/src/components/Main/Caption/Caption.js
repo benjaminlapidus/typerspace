@@ -23,9 +23,9 @@ const Caption = (props) => {
 					color:
 					props.captionInd === props.captionIndex ?
 					props.letterInd < props.charIndex
-						? "#bababa"
+						? "yellow"
 						: "white"
-					: "darkGray"
+					: "green"
 				}}>
 			{props.letter}
 		</span>

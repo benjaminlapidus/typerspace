@@ -13,15 +13,15 @@ let [correctWords, setCorrectWords] = React.useState(87);
 let [wrongWords, setWrongWords] = React.useState(5);
 
 	return (
-		<div class="column_div">
-			<div class="stat">
+		<div className="column_div">
+			<div className="stat">
 				<b><span> {wpm} WPM </span></b>
 			</div>
-			<div class="stat">
+			<div className="stat">
 				Accuracy
 				<span style={{color: "gold"}}>{' '+accuracy}{'%'}</span>
 			</div>
-			<div class="stat">
+			<div className="stat">
 			  Keystrokes
 				(
 				<span style={{color: "green"}}>
@@ -33,11 +33,11 @@ let [wrongWords, setWrongWords] = React.useState(5);
  				</span>
 				)
 			</div>
-			<div class="stat">
+			<div className="stat">
 			  Correct words
 				<span style={{color: "green"}}>{' '}{correctWords}</span>
 			</div>
-			<div class="stat">
+			<div className="stat">
 			  Wrong words
 				<span style={{color: "red"}}>{' '}{wrongWords}</span>
 			</div>

@@ -27,7 +27,6 @@ const secondaryOptions = {
 
 
 const CaptionsWrapper = (props) => {
-
 	const [captionIndex, setCaptionIndex] = React.useState(props.captionIndex);
 	const [charIndex, setCharIndex] = React.useState(0);
 

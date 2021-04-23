@@ -13,17 +13,17 @@ function HomeWrapper(props) {
 	return (
 		<div>
 			<h1 className="header">Typerspace</h1>
-			<div class="solar-syst">
-				<div class="sun"></div>
-				<div class="mercury"></div>
-				<div class="venus"></div>
-				<div class="earth"></div>
-				<div class="mars"></div>
-				<div class="jupiter"></div>
-				<div class="saturn"></div>
-				<div class="uranus"></div>
-				<div class="neptune"></div>
-				<div class="asteroids-belt"></div>
+			<div className="solar-syst">
+				<div className="sun"></div>
+				<div className="mercury"></div>
+				<div className="venus"></div>
+				<div className="earth"></div>
+				<div className="mars"></div>
+				<div className="jupiter"></div>
+				<div className="saturn"></div>
+				<div className="uranus"></div>
+				<div className="neptune"></div>
+				<div className="asteroids-belt"></div>
 			</div>
 
 			<div className="search-wrapper">

@@ -5,17 +5,15 @@ import "./KeyboardWrapper.scss";
 
 class KeyboardWrapper extends Component {
     state = {
-    layoutName: "default",
-    input: ""
-  };
+      layoutName: "default",
+      input: ""
+    };
 
   onChange = input => {
     this.setState({ input });
   };
 
   onKeyPress = button => {
-   
-
     /**
      * If you want to handle the shift and caps lock buttons
      */

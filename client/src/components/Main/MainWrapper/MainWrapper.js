@@ -7,8 +7,19 @@ import "./MainWrapper.scss";
 
 function MainWrapper(props) {
 var link = props.location.search.substring(props.location.search.length - 11);
+// var idFound = props.location.search.indexOf("?v=");
+// var timeFound = props.location.search.indexOf("?t=")
+// var time = 0;
+// if(timeFound != -1){
+//   time = 0;
+// }
+// if(idFound == -1){
+//   link = props.location.search.substring(props.location.search.length - 11);
+// } else {
+//   var link = props.location.search.toLowerCase().substring(idFound + 3, idFound + 15);
+// }
 const [isLoading, setLoading] = React.useState(true);
-const [captionIndex, setCaptionIndex] = React.useState(true);
+const [captionIndex, setCaptionIndex] = React.useState(0);
 let [data, setData] = React.useState({});
 const axios = require('axios').default;
 
@@ -37,17 +48,17 @@ function handleCaptionIndex(newValue) {
 
   return (
 		<div className="wrapper">
-    <div class="solar-syst">
-      <div class="sun"></div>
-      <div class="mercury"></div>
-      <div class="venus"></div>
-      <div class="earth"></div>
-      <div class="mars"></div>
-      <div class="jupiter"></div>
-      <div class="saturn"></div>
-      <div class="uranus"></div>
-      <div class="neptune"></div>
-      <div class="asteroids-belt"></div>
+    <div className="solar-syst">
+      <div className="sun"></div>
+      <div className="mercury"></div>
+      <div className="venus"></div>
+      <div className="earth"></div>
+      <div className="mars"></div>
+      <div className="jupiter"></div>
+      <div className="saturn"></div>
+      <div className="uranus"></div>
+      <div className="neptune"></div>
+      <div className="asteroids-belt"></div>
     </div>
 			<div className="video__wrapper">
 				<VideoWrapper id={link} handleCaptionIndex={handleCaptionIndex} data={data.captions}/>
