@@ -1,5 +1,7 @@
 import React from "react";
+import Typist from 'react-typist';
 import "./HomeWrapper.scss";
+import 'react-typist/dist/Typist.css'
 
 function HomeWrapper(props) {
 	const [link, setLink] = React.useState("");
@@ -12,7 +14,11 @@ function HomeWrapper(props) {
 	return (
 		<div className="Home">
 			<h1 className="Home__header">Typerspace</h1>
-			<h2 className="Home__sub_header">Begin your mission</h2>
+			<h2 className="Home__sub_header">
+				<Typist avgTypingDelay={80} cursor={{ hideWhenDone: false, blink: true}}>
+				Begin Your Mission
+			</Typist>
+			</h2>
 			<div className="Homesearch-wrapper">
 				<form className="Home__form" action={"/dashboard"}>
 					<input
