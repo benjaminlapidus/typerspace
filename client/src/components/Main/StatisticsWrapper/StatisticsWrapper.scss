@@ -1,16 +1,14 @@
 
 .column_div{
+  text-align: right;
   margin-top: 2vh;
   margin-left: 10%;
   column-count: 1;
-  column-width: 400px !important;
+  column-width: 400px;
 }
 .stat{
   font-weight:100;
   padding: 0 0 50px 0;
-  font-size:calc(5px + 1.2vw);
-  text-transform:uppercase;
-  font-family: Lato;
-  line-height:1.2em;
-  letter-spacing:.02em;
+  font-size: 2em;
+  font-family: "VT323", sans-serif;
 }

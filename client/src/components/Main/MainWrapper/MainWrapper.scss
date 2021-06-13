@@ -22,8 +22,10 @@
   margin-top: -16px;
 }
 .statistics__wrapper {
-  grid-column: col-start 10 / 14;
-  grid-row: 1/7;
+  position: fixed;
+  right: 20px;
+  color: white;
+  font-family: "VT323", sans-serif;
 }
 
 .loader {
