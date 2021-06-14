@@ -3,10 +3,6 @@ import "./CaptionsWrapper.scss";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Caption from "../Caption/Caption";
 
-
-//document.getElementById("nav-id__splide__arrow--prev").click()
-//document.getElementById("nav-id__splide__arrow--next").click()
-
 const primaryOptions = {
 	type: "loop",
 	perPage: 3,
@@ -25,8 +21,10 @@ const secondaryOptions = {
 	focus: 'center',
 }
 
-
 const CaptionsWrapper = (props) => {
+	const wordsArr = props.words.slice(0, 3)
+	console.log(props.words)
+	console.log(wordsArr)
 	const [captionIndex, setCaptionIndex] = React.useState(props.captionIndex);
 	const [charIndex, setCharIndex] = React.useState(0);
 
@@ -34,11 +32,27 @@ const CaptionsWrapper = (props) => {
 		let currCharIndex = charIndex;
 		let currCaptionIndex = captionIndex;
 
-		if (props.words[currCaptionIndex].text.split("")[currCharIndex] === String.fromCharCode(char)){
+		if (wordsArr[currCaptionIndex].text.split("")[currCharIndex] === String.fromCharCode(char)){
 			currCharIndex++;
 			setCharIndex(currCharIndex);
 
-			if (currCharIndex >= props.words[currCaptionIndex].text.split("").length){
+			if (currCharIndex >= wordsArr[currCaptionIndex].text.split("").length){
+				setCharIndex(0);
+				currCaptionIndex++;
+				setCaptionIndex(currCaptionIndex);
+			}
+		}
+	}
+
+	const checkSpecialChar = (char) => {
+		let currCharIndex = charIndex;
+		let currCaptionIndex = captionIndex;
+
+		if (wordsArr[currCaptionIndex].text.split("")[currCharIndex] === char){
+			currCharIndex++;
+			setCharIndex(currCharIndex);
+
+			if (currCharIndex >= wordsArr[currCaptionIndex].text.split("").length){
 				setCharIndex(0);
 				currCaptionIndex++;
 				setCaptionIndex(currCaptionIndex);
@@ -59,10 +73,13 @@ const CaptionsWrapper = (props) => {
 					checkChar(e.keyCode + 32);
 				}
 			} else {
-				checkChar(e.keyCode);
+				if(e.key == '.' || e.key == ','){
+					checkSpecialChar(e.key)
+				} else {
+					checkChar(e.keyCode);
+				}
 			}
 		}
-
 
 	});
 
@@ -70,7 +87,7 @@ const CaptionsWrapper = (props) => {
 		<div className="wrapper">
 			<div id="infoi"></div>
 			<Splide className="slider" options={primaryOptions}>
-				{props.words.map((phrase, captionInd) => {
+				{wordsArr.map((phrase, captionInd) => {
 					return (
 						<SplideSlide>
 							<div className="caption__line">

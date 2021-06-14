@@ -48,18 +48,6 @@ function handleCaptionIndex(newValue) {
 
   return (
 		<div className="wrapper">
-    <div className="solar-syst">
-      <div className="sun"></div>
-      <div className="mercury"></div>
-      <div className="venus"></div>
-      <div className="earth"></div>
-      <div className="mars"></div>
-      <div className="jupiter"></div>
-      <div className="saturn"></div>
-      <div className="uranus"></div>
-      <div className="neptune"></div>
-      <div className="asteroids-belt"></div>
-    </div>
 			<div className="video__wrapper">
 				<VideoWrapper id={link} handleCaptionIndex={handleCaptionIndex} data={data.captions}/>
 			</div>
