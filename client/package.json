@@ -12,7 +12,6 @@
     "@types/react": "^17.0.1",
     "@types/react-dom": "^17.0.0",
     "axios": "^0.21.4",
-    "node-sass": "^5.0.0",
     "npx": "^10.2.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
