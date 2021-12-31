@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
-import SimpleKeyboard from 'react-simple-keyboard';
-import 'react-simple-keyboard/build/css/index.css';
+import React, { Component } from "react";
+import SimpleKeyboard from "react-simple-keyboard";
+import "react-simple-keyboard/build/css/index.css";
 
-function Keyboard() {   
-    return (
-        <SimpleKeyboard
-            physicalKeyboardHighlight: {false};
-        />
-    );
+function Keyboard() {
+  return <SimpleKeyboard />;
 }
 
 export default Keyboard;

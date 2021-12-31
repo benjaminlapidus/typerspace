@@ -1,5 +1,4 @@
 import React from "react";
-import "./Caption.scss";
-
+import "./Caption.css";
 
 export default Caption;

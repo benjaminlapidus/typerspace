@@ -1,11 +1,9 @@
 import React from "react";
 import Keyboard from "../Keyboard/Keyboard";
-import "./Main.scss";
+import "./Main.css";
 
 function Main(props) {
-    return (
-        <Keyboard/>
-    );
+  return <Keyboard />;
 }
 
 export default Main;

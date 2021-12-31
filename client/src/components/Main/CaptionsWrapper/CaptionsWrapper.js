@@ -1,7 +1,5 @@
 import React from "react";
-import "./CaptionsWrapper.scss";
+import "./CaptionsWrapper.css";
 import Caption from "../Caption/Caption";
-
-
 
 export default CaptionsWrapper;
