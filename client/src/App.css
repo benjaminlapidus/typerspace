@@ -1,32 +1,21 @@
 .App {
-	height: 100vh;
+  height: 100vh;
 }
 
-*, *:before, *:after{
-  padding:0;
-  margin:0;
-  box-sizing:border-box;
-}
-
-html {
-  height:100%;
-  width:100%;
-  overflow: hidden;
-  background-color: black;
-}
-
-body {
-  margin: 0 auto;
-  width: 65%;
-  max-width: 1000px;
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 /* vt323-regular - latin */
 @font-face {
-  font-family: 'VT323';
+  font-family: "VT323";
   font-style: normal;
   font-weight: 400;
-  src: local(''),
-       url('./fonts/vt323-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('./fonts/vt323-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(""), url("./fonts/vt323-v12-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("./fonts/vt323-v12-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
