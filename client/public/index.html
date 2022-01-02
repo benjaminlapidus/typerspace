@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="preload" as="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet"> 
+    <link
+      rel="preload"
+      as="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../node_modules/@splidejs/splide/dist/css/splide.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Web site created using create-react-app"
     />
-   
+
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -40,17 +46,13 @@
     -->
   </body>
   <script type="text/javascript">
-
-if (typeof window.event != 'undefined')
-  document.onkeydown = function()
-  {
-    return (event.keyCode != 8);
-  }
-else
-  document.onkeypress = function(e)
-  {
-    return (e.keyCode != 8);
-  }
-
-</script>
+    if (typeof window.event != "undefined")
+      document.onkeydown = function () {
+        return event.keyCode != 8;
+      };
+    else
+      document.onkeypress = function (e) {
+        return e.keyCode != 8;
+      };
+  </script>
 </html>
