@@ -34,7 +34,7 @@ function Home(props) {
                 </div>
               </div>
               <div className="block md:ml-10 md:space-x-8 rounded bg-purple-800 hover:bg-purple-700 px-3 py-2 text-center text-gray-100">
-                <a href="#" className="font-medium">
+                <a href="http://127.0.0.1:5000/login" className="font-medium">
                   Log in
                 </a>
               </div>
