@@ -272,7 +272,7 @@ module.exports = {
         "serif",
       ],
       mono: [
-        "VT323",
+        '"Press Start 2P"',
         "ui-monospace",
         "SFMono-Regular",
         "Menlo",

@@ -13,6 +13,13 @@ const navigation = [
 ];
 
 function Home(props) {
+  const [link, setLink] = React.useState("");
+  const ytParser = (url) => {
+    var regExp =
+      /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    var match = url.match(regExp);
+    setLink(match && match[7].length == 11 ? match[7] : false);
+  };
   return (
     <div className="relative bg-white dark:bg-gray-900 overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -41,15 +48,45 @@ function Home(props) {
             </nav>
           </div>
 
-          <main className="grid grid-cols-12 gap-4 mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-            <div className="col-start-2 col-span-10 sm:text-center">
-              <h1 className="text-6xl tracking-tight font-extrabold text-gray-900 dark:text-gray-100 sm:text-6xl md:text-9xl">
-                <span className="font-mono block xl:inline">typerspace</span>
+          <main className="gap-4 mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+            <div className="md:text-left md:max-w-xl">
+              <h1 className="text-3xl sm:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-100 md:text-7xl">
+                <span className="font-mono block xl:inline">
+                  typer
+                  <span className=" text-purple-800 dark:text-purple-300">
+                    space
+                  </span>
+                </span>
               </h1>
-              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                Learning to type doesn't have to be boring. Practice while
-                typing alongside your favorite videos and songs.
-              </p>
+              <div className="md:pl-3">
+                <p className="m-2 text-base text-gray-500 dark:text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl">
+                  Learning to type doesn't have to be boring. Practice typing
+                  using your favorite videos and songs.
+                </p>
+                <form className="Home__form" action={"/dashboard"}>
+                  <div className="my-2">
+                    <label className="block dark:text-gray-400">
+                      YouTube URL
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Placeholder"
+                      onChange={(e) => ytParser(e.target.value)}
+                      type="text"
+                      name="link"
+                      className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring"
+                    />
+                  </div>
+
+                  <div className="Home__submitButtonWrapper">
+                    <input
+                      id="Home__submitButton"
+                      type="submit"
+                      value="take off"
+                    />
+                  </div>
+                </form>
+              </div>
             </div>
           </main>
         </div>
