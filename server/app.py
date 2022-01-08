@@ -83,8 +83,10 @@ def index():
         return redirect(url_for("google.login"))
     resp = google.get('/oauth2/v2/userinfo')
     assert resp.ok, resp.text
-    # Store in database
-    return "You are {email} on Google".format(email=resp.json()["emails"][0]["value"])
+    data = resp.json()
+    # Store in database here
+    print (f"LOGIN: {data['name']}, EMAIL: {data['email']}")
+    return redirect("http://localhost:3000")
 
 if __name__ == "__main__":
     app.run(threaded=True, port=5000, debug=True)
