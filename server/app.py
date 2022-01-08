@@ -1,4 +1,5 @@
 import requests
+import secrets
 import json
 import os
 from flask import *
@@ -8,7 +9,7 @@ from youtube_transcript_api import YouTubeTranscriptApi
 
 GOOGLE_CLIENT_ID = json.loads(open('tokens.json', 'r').read())['web']['client_id']
 GOOGLE_CLIENT_SECRET = json.loads(open('tokens.json', 'r').read())['web']['client_secret']
-SECRET_KEY = json.loads(open('tokens.json', 'r').read())['nonweb']['secret_key']
+SECRET_KEY = secrets.token_urlsafe(16)
 
 class Video:
     def __init__(self, i, a):
@@ -63,6 +64,7 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
+
 
 blueprint = make_google_blueprint(
     client_id=GOOGLE_CLIENT_ID,
