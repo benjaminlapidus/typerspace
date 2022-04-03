@@ -1,0 +1,5 @@
+youtube-transcript-api
+Flask
+flask_cors
+flask-dance[sqla]
+gunicorn
