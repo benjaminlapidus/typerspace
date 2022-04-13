@@ -3,3 +3,4 @@ Flask
 flask_cors
 flask-dance[sqla]
 gunicorn
+pymongo

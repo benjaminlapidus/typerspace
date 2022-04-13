@@ -35,6 +35,8 @@ oauthlib==3.2.0
     # via
     #   flask-dance
     #   requests-oauthlib
+pymongo==4.1.0
+    # via -r .\requirements.in
 requests==2.25.1
     # via
     #   flask-dance
