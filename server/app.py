@@ -1,94 +1,41 @@
-import requests
 import secrets
-import json
 import os
-from flask import *
+
+from flask import Flask
 from flask_dance.contrib.google import make_google_blueprint, google
 from flask_cors import CORS, cross_origin
-from youtube_transcript_api import YouTubeTranscriptApi
+from api.video_translator import Transcriber
+from oauth.authorization import OAuth
+from settings import Config
 
-GOOGLE_CLIENT_ID = json.loads(open('tokens.json', 'r').read())['web']['client_id']
-GOOGLE_CLIENT_SECRET = json.loads(open('tokens.json', 'r').read())['web']['client_secret']
-SECRET_KEY = secrets.token_urlsafe(16)
-
-class Video:
-    def __init__(self, i, a):
-        self.id = i
-        self.manual = a
-        self.captions = []
-
-class Caption:
-    def __init__(self, s, e, d, t):
-        self.start = s
-        self.end = e
-        self.duration = d
-        self.text = t
-
-def getInfo(videoID):
-
-    try:
-        transcriptList = YouTubeTranscriptApi.list_transcripts(videoID)
-
-        foundManual = False
-        captionDict = 0
-        for transcript in transcriptList:
-            if(transcript.is_generated == False and transcript.language == 'English'):
-                captionDict = transcript.fetch()
-                foundManual = True
-                break
-            if('English' in transcript.language):
-                captionDict = transcript.fetch()
-
-        if(captionDict == 0):
-            video = Video(0, False)
-            jsonVideo = json.dumps(video, default=lambda o: o.__dict__)
-            return jsonVideo
-
-        video = Video(videoID, foundManual)
-
-        for caption in captionDict:
-            video.captions.append(Caption(caption['start'], caption['start'] + caption['duration'], caption['duration'], caption['text'].replace(chr(34), '').replace('\n',' ').replace(chr(160), ' ')))
-
-        jsonVideo = json.dumps(video, default=lambda o: o.__dict__)
-        return jsonVideo
-
-    except(Exception):
-        video = Video(0, False)
-        jsonVideo = json.dumps(video, default=lambda o: o.__dict__)
-        return jsonVideo
-
+oauth = OAuth()
+transcriber = Transcriber()
 app = Flask(__name__)
-app.secret_key = SECRET_KEY
-app.config['TESTING'] = True
+app.secret_key = Config.SECRET_KEY
 cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
-os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
-os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
-
+app.config["CORS_HEADERS"] = "Content-Type"
+os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+os.environ["OAUTHLIB_RELAX_TOKEN_SCOPE"] = "1"
 
 blueprint = make_google_blueprint(
-    client_id=GOOGLE_CLIENT_ID,
-    client_secret=GOOGLE_CLIENT_SECRET,
-    scope=["profile", "email"]
+    client_id=Config.GOOGLE_CLIENT_ID,
+    client_secret=Config.GOOGLE_CLIENT_SECRET,
+    scope=["profile", "email"],
 )
 
-app.register_blueprint(blueprint, url_prefix='/login')
+app.register_blueprint(blueprint, url_prefix="/login")
+
 
 @cross_origin()
 @app.route("/api/<videoID>")
-def api_test(videoID):
-    return getInfo(videoID)
+def get_video_transcript(video_id):
+    return transcriber.get_transcript(video_id)
+
 
 @app.route("/")
 def index():
-    if not google.authorized:
-        return redirect(url_for("google.login"))
-    resp = google.get('/oauth2/v2/userinfo')
-    assert resp.ok, resp.text
-    data = resp.json()
-    # Store in database here
-    print (f"LOGIN: {data['name']}, EMAIL: {data['email']}")
-    return redirect("http://localhost:3000")
+    return oauth.check_if_auth()
+
 
 if __name__ == "__main__":
     app.run(threaded=True, port=5000, debug=True)
