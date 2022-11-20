@@ -1,3 +1,4 @@
+# Frontend for Typerspace, API located [here](https://github.com/MatthewDamiata/typerspace-api).
 ## What is Typerspace?
 Typerspace lets users practice their typing skills by following along with the captions to a YouTube video.
 
